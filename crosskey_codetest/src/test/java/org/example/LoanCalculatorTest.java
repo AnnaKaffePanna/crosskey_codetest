@@ -1,18 +1,21 @@
 package org.example;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class LoanCalculatorTest {
+    int[] years = {1,-1,0,5};
 
     @org.junit.jupiter.api.Test
-    void calculateInterestRate() {
+    void testCalculateInterestRate() {
     }
 
     @org.junit.jupiter.api.Test
-    void calculateMonthlyRate() {
+    void testCalculateMonthlyRate() {
     }
 
     @org.junit.jupiter.api.Test
-    void calculateYearsIntoMonths() {
+    void testCalculateYearsIntoMonths() {
+        for(int i = 0; i < years.length; i++){
+
+        }
+
     }
 }
