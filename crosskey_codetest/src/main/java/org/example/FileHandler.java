@@ -18,28 +18,42 @@ public class FileHandler {
         String line;
         while ((line = reader.readLine()) != null) {
             if(count != 0  && !line.equals("") && !line.equals(".")) {
-                out.append(line);   // add everything to StringBuilder
-                insertIntoCustomerClass(line);
+                String lineWithNoBrackets = line.replaceAll("\"", "");
+                out.append(lineWithNoBrackets);   // add everything to StringBuilder
+                insertIntoCustomerClass(lineWithNoBrackets);
 
             }
             count ++;
         }
         //System.out.println(out);
-        System.out.println(customers.getCustomersList().get(1).getName());
+        System.out.println(customers.getCustomersList().get(0).getName());
     }
 
     public void insertIntoCustomerClass(String line){
         String[] testArray = line.split(",");
-        if(testArray.length > 3){
 
-        }
-        else {
-            double loan = Double.parseDouble(testArray[1]);
-            double interest = Double.parseDouble(testArray[2]);
-            int years = Integer.parseInt(testArray[3]);
+        for(int i = 0; i < testArray.length; i++){
+            //boolean test = Character.isDigit(testArray[i].charAt(i));
+            if(!Character.isDigit(testArray[i].charAt(i))){
+                if(!Character.isDigit(testArray[i+1].charAt(i))){
+                    testArray[i] = testArray[i] + " " + testArray[i+1];
+                    for(int j = i+1; j < testArray.length; j++){
 
-            Customer customer = new Customer(testArray[0], loan, interest, years);
-            customers.getCustomersList().add(customer);
+                    }
+
+                }
+
+                else {
+                    double loan = Double.parseDouble(testArray[1]);
+                    double interest = Double.parseDouble(testArray[2]);
+                    int years = Integer.parseInt(testArray[3]);
+
+                    Customer customer = new Customer(testArray[0], loan, interest, years);
+                    customers.getCustomersList().add(customer);
+                    return;
+                }
+            }
+
         }
 
         System.out.println(Arrays.toString(testArray));
