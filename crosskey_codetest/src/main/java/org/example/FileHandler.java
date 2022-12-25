@@ -17,6 +17,13 @@ public class FileHandler {
         while ((line = reader.readLine()) != null) {
             if(count != 0  && !line.equals("")) {
                 out.append(line);   // add everything to StringBuilder
+                for(int i = 0; i < line.length();i++){
+                    boolean flag = Character.isDigit(line.charAt(i));
+                    //checks if one character is a letter or number
+                    if(flag){
+
+                    }
+                }
             }
             count ++;
         }
