@@ -1,15 +1,33 @@
 package org.example;
 
 public class Customer {
-    private String name;
-    private String loan;
-    private String interest;
-    private String months;
+    private final String name;
+    private final int loanInCents;
+    private final double interest;
+    private final int months;
 
-    public Customer(String name, String loan, String interest, String months) {
+    ExchangeHandler exchangeHandler = new ExchangeHandler();
+
+    public Customer(String name, double loanInEuro, double interest, int years) {
         this.name = name;
-        this.loan = loan;
+        this.loanInCents = exchangeHandler.eurosIntoCents(loanInEuro);
         this.interest = interest;
-        this.months = months;
+        this.months = exchangeHandler.calculateYearsIntoMonths(years);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getInterest() {
+        return interest;
+    }
+
+    public int getMonths() {
+        return months;
+    }
+
+    public ExchangeHandler getExchangeHandler() {
+        return exchangeHandler;
     }
 }
