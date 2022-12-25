@@ -7,8 +7,11 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 public class FileHandler {
-    Customers customers = new Customers();
-    void test() throws IOException {
+    private final Customers customers = new Customers();
+    private final ExchangeHandler exchangeHandler = new ExchangeHandler();
+
+
+    void readFile() throws IOException {
         int count = 0;
         InputStream is = getClass().getClassLoader().getResourceAsStream("prospects.txt");
         assert is != null;
@@ -20,57 +23,68 @@ public class FileHandler {
             if(count != 0  && !line.equals("") && !line.equals(".")) {
                 String lineWithNoBrackets = line.replaceAll("\"", "");
                 //out.append(lineWithNoBrackets);   // add everything to StringBuilder
-                insertIntoCustomerClass(lineWithNoBrackets);
+                handleLine(lineWithNoBrackets);
 
             }
             count ++;
         }
+        /*
         System.out.println(customers.getCustomersList().get(0).toString());
         System.out.println(customers.getCustomersList().get(1).toString());
         System.out.println(customers.getCustomersList().get(2).toString());
         System.out.println(customers.getCustomersList().get(3).toString());
+        */
     }
 
-    public void insertIntoCustomerClass(String line){
-        String[] testArray = line.split(",");
+    private void handleLine(String line){
+        String[] lineArray = line.split(",");
 
-        for(int i = 0; i < testArray.length; i++){
-            //boolean test = Character.isDigit(testArray[i].charAt(i));
-            if(!Character.isDigit(testArray[i].charAt(i))){
-                if(!Character.isDigit(testArray[i+1].charAt(i))){
-                    testArray[i] = testArray[i] + " " + testArray[i+1];
-                    for(int j = i+1; j < testArray.length; j++){
+        for(int i = 0; i < lineArray.length; i++){
+            if(!Character.isDigit(lineArray[i].charAt(i))){
+                if(!Character.isDigit(lineArray[i+1].charAt(i))){
+                    lineArray[i] = lineArray[i] + " " + lineArray[i+1];
+                    for(int j = i+1; j < lineArray.length; j++){
                         if(j != 4){
-                            testArray[j]= testArray[j+1];
+                            lineArray[j]= lineArray[j+1];
                         }
                     }
-                    testArray[testArray.length-1] = null;
+                    lineArray[lineArray.length-1] = null;
 
-                    double loan = Double.parseDouble(testArray[1]);
-                    double interest = Double.parseDouble(testArray[2]);
-                    int years = Integer.parseInt(testArray[3]);
-
-                    Customer customer = new Customer(testArray[0], loan, interest, years);
-                    customers.getCustomersList().add(customer);
+                    insertCustomerIntoList(lineArray);
                     return;
                 }
 
                 else {
-                    double loan = Double.parseDouble(testArray[1]);
-                    double interest = Double.parseDouble(testArray[2]);
-                    int years = Integer.parseInt(testArray[3]);
-
-                    Customer customer = new Customer(testArray[0], loan, interest, years);
-                    customers.getCustomersList().add(customer);
+                    insertCustomerIntoList(lineArray);
                     return;
                 }
             }
+        }
+    }
+
+    private void insertCustomerIntoList(String[] lineArray){
+        double loan = Double.parseDouble(lineArray[1]);
+        double interest = Double.parseDouble(lineArray[2]);
+        int years = Integer.parseInt(lineArray[3]);
+
+        Customer customer = new Customer(lineArray[0], loan, interest, years);
+        customers.getCustomersList().add(customer);
+    }
+
+    public void printFile(){
+        for(int i = 0; i < customers.getCustomersList().size(); i++) {
+            System.out.println("*****************************************************" +
+                                "***********************************************\n");
+            System.out.println("Prospect " + (i+1) + ": "+ customers.getCustomersList().get(i).getName()
+                                + " wants to borrow "
+                                + exchangeHandler.centsIntoEuros(customers.getCustomersList().get(i).getLoanInCents())
+                                + "€ for a period of "
+                                + customers.getCustomersList().get(i).getMonths()/12 + " years and pay "
+                                + customers.activateLoanCalculator(i) + "€ each month.");
+            System.out.println("\n*****************************************************" +
+                                "***********************************************\n");
 
         }
 
-        System.out.println(Arrays.toString(testArray));
     }
-
-
-
 }

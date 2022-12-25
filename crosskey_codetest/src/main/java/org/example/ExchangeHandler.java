@@ -6,7 +6,7 @@ public class ExchangeHandler {
     }
 
     public double centsIntoEuros(int cents){
-        return (double)(cents / 100);
+        return (double)cents / 100;
     }
 
     public int calculateYearsIntoMonths(int years) {
@@ -15,5 +15,9 @@ public class ExchangeHandler {
             months += 12;
         }
         return months;
+    }
+
+    public int calculateMonthsIntoYears(int months) {
+        return months/12;
     }
 }

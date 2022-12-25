@@ -27,6 +27,10 @@ public class Customer {
         return months;
     }
 
+    public int getLoanInCents() {
+        return loanInCents;
+    }
+
     public ExchangeHandler getExchangeHandler() {
         return exchangeHandler;
     }
