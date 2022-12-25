@@ -6,19 +6,18 @@ public class LoanCalculator {
     private final double interest;
     private final int months;
 
-    private final ExchangeMoneyHandler exchangeMoneyHandler = new ExchangeMoneyHandler();
+    private final ExchangeHandler exchangeHandler = new ExchangeHandler();
 
     public LoanCalculator(int loan, double interest, int years) throws IllegalArgumentException{
-        //ToDo: handle exeptions like -0 and loans being 0, could a factory method be a solution?
+        //ToDo: handle exceptions like -0 and loans being 0, could a factory method be a solution?
         /*if (loan > 0 && interest >= 0 && years >= 1) {
             this.loan = exchangeMoneyHandler.eurosIntoCents(loan);
             this.interest = interest;
             this.months = calculateYearsIntoMonths(years);
         }*/
-        this.loan = exchangeMoneyHandler.eurosIntoCents(loan);
+        this.loan = exchangeHandler.eurosIntoCents(loan);
         this.interest = interest;
-        this.months = calculateYearsIntoMonths(years);
-
+        this.months = exchangeHandler.calculateYearsIntoMonths(years);
     }
 
     public double calculateInterestRate() {
@@ -27,14 +26,7 @@ public class LoanCalculator {
 
     public double calculateMonthlyRate(){
         int result = (int) ((loan / this.months) + calculateInterestRate()); //Maybe wrong?
-        return exchangeMoneyHandler.centsIntoEuros(result);
+        return exchangeHandler.centsIntoEuros(result);
     }
 
-    public int calculateYearsIntoMonths(int years) {
-        int months = 0;
-        for (int i = 0; i < years; i++) {
-            months += 12;
-        }
-        return months;
-    }
 }

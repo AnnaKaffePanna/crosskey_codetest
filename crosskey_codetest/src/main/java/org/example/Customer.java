@@ -2,9 +2,14 @@ package org.example;
 
 public class Customer {
     private String name;
-    private int loan;
-    private double interest;
-    private int months;
+    private String loan;
+    private String interest;
+    private String months;
 
-
+    public Customer(String name, String loan, String interest, String months) {
+        this.name = name;
+        this.loan = loan;
+        this.interest = interest;
+        this.months = months;
+    }
 }
