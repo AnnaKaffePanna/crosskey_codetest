@@ -30,4 +30,14 @@ public class Customer {
     public ExchangeHandler getExchangeHandler() {
         return exchangeHandler;
     }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "name='" + name + '\'' +
+                ", loanInCents=" + loanInCents +
+                ", interest=" + interest +
+                ", months=" + months +
+                '}';
+    }
 }

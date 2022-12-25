@@ -13,20 +13,22 @@ public class FileHandler {
         InputStream is = getClass().getClassLoader().getResourceAsStream("prospects.txt");
         assert is != null;
         BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        StringBuilder out = new StringBuilder();
+        //StringBuilder out = new StringBuilder();
 
         String line;
         while ((line = reader.readLine()) != null) {
             if(count != 0  && !line.equals("") && !line.equals(".")) {
                 String lineWithNoBrackets = line.replaceAll("\"", "");
-                out.append(lineWithNoBrackets);   // add everything to StringBuilder
+                //out.append(lineWithNoBrackets);   // add everything to StringBuilder
                 insertIntoCustomerClass(lineWithNoBrackets);
 
             }
             count ++;
         }
-        //System.out.println(out);
-        System.out.println(customers.getCustomersList().get(0).getName());
+        System.out.println(customers.getCustomersList().get(0).toString());
+        System.out.println(customers.getCustomersList().get(1).toString());
+        System.out.println(customers.getCustomersList().get(2).toString());
+        System.out.println(customers.getCustomersList().get(3).toString());
     }
 
     public void insertIntoCustomerClass(String line){
@@ -38,9 +40,19 @@ public class FileHandler {
                 if(!Character.isDigit(testArray[i+1].charAt(i))){
                     testArray[i] = testArray[i] + " " + testArray[i+1];
                     for(int j = i+1; j < testArray.length; j++){
-
+                        if(j != 4){
+                            testArray[j]= testArray[j+1];
+                        }
                     }
+                    testArray[testArray.length-1] = null;
 
+                    double loan = Double.parseDouble(testArray[1]);
+                    double interest = Double.parseDouble(testArray[2]);
+                    int years = Integer.parseInt(testArray[3]);
+
+                    Customer customer = new Customer(testArray[0], loan, interest, years);
+                    customers.getCustomersList().add(customer);
+                    return;
                 }
 
                 else {
