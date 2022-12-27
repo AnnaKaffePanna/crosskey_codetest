@@ -10,7 +10,6 @@ public class FileHandler {
     private final Customers customers = new Customers();
     private final ExchangeHandler exchangeHandler = new ExchangeHandler();
 
-
     void readFile() throws IOException {
         int count = 0;
         InputStream is = getClass().getClassLoader().getResourceAsStream("prospects.txt");

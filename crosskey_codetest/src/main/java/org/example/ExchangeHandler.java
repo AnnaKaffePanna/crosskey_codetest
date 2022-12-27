@@ -2,11 +2,13 @@ package org.example;
 
 public class ExchangeHandler {
     public int eurosIntoCents(double euros){
-        return (int) (euros * 100);
+        int result = (int)(euros * 100);
+        return result;
     }
 
     public double centsIntoEuros(int cents){
-        return (double)cents / 100;
+        double result = (double)cents / 100;
+        return result;
     }
 
     public int calculateYearsIntoMonths(int years) {

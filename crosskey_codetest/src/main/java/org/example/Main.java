@@ -7,6 +7,9 @@ public class Main {
         FileHandler fileHandler = new FileHandler();
         fileHandler.readFile();
         fileHandler.printFile();
-    }
 
+        /*
+        LoanCalculator test = new LoanCalculator();
+        System.out.println(test.calculateInterestRate(5, 12, 1000));*/
+    }
 }
