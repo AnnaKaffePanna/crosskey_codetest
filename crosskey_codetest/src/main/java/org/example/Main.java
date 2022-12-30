@@ -9,10 +9,10 @@ public class Main {
         fileHandler.readFile();
         fileHandler.printFile();
 
-
-        //LoanCalculator test = new LoanCalculator();
-        //System.out.println(test.crosskeysFormula(5, 24, 1000));
-
+        /*
+        LoanCalculator test = new LoanCalculator();
+        System.out.println(test.crosskeysFormula(5, 24, 1000)); //HM
+        */
 
     }
 }

@@ -12,7 +12,7 @@ public class Customer {
         this.name = name;
         this.loanInCents = exchangeHandler.eurosIntoCents(loanInEuro);
         this.interest = interest;
-        this.months = exchangeHandler.calculateYearsIntoMonths(years);
+        this.months = exchangeHandler.yearsIntoMonths(years);
     }
 
     public String getName() {
