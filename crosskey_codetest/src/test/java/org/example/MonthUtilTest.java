@@ -4,8 +4,8 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ExchangeYearsAndMonthsTest {
-    ExchangeYearsAndMonths exchangeYearsAndMonths = new ExchangeYearsAndMonths();
+class MonthUtilTest {
+    MonthUtil monthUtil = new MonthUtil();
 
     /**
      * Testcases for methods handling exchanges from months into year/years
@@ -13,25 +13,25 @@ class ExchangeYearsAndMonthsTest {
 
     @Test
     void oneMonthIntoYears(){
-        assertEquals(1, exchangeYearsAndMonths.monthsIntoYears(12));
+        assertEquals(1, monthUtil.monthsIntoYears(12));
     }
     @Test
     void oneHundredAndEightyMonthsIntoYears(){
-        assertEquals(15, exchangeYearsAndMonths.monthsIntoYears(180));
+        assertEquals(15, monthUtil.monthsIntoYears(180));
     }
 
     @Test
     void monthsIntoYearsNullTest(){
-        assertEquals(0, exchangeYearsAndMonths.yearsIntoMonths(0));
+        assertEquals(0, monthUtil.yearsIntoMonths(0));
     }
     @Test
     void monthsIntoYearsNegativeValueTest(){
-        assertEquals(0, exchangeYearsAndMonths.yearsIntoMonths(-1));
+        assertEquals(0, monthUtil.yearsIntoMonths(-1));
     }
 
     @Test
     void valueUnder12Months(){
-        assertEquals(0, exchangeYearsAndMonths.monthsIntoYears(1));
+        assertEquals(0, monthUtil.monthsIntoYears(1));
     }
 
 }

@@ -10,16 +10,11 @@ public class Customers {
         return customersList;
     }
 
-    /*
+    public double calculateCustomerLoanAtIndex(final int index) {
+        final LoanCalculator loanCalculator = new LoanCalculator();
 
-    public double activateLoanCalculator(int index){
-        LoanCalculator loanCalculator = new LoanCalculator();
-        double result = loanCalculator.calculateMonthlyRate(customersList.get(index).getLoanInCents(),
-                                                            customersList.get(index).getMonths(),
-                                                            customersList.get(index).getInterest());
-
-
-        return result;
+        return loanCalculator.calculateMonthlyRate(customersList.get(index).getInterest(),
+                customersList.get(index).getMonths(),
+                customersList.get(index).getLoan());
     }
-     */
 }

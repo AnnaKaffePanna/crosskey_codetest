@@ -1,7 +1,7 @@
 package org.example;
 
-public class ExchangeYearsAndMonths {
-    public int yearsIntoMonths(int years) {
+public class MonthUtil {
+    public static int yearsIntoMonths(int years) {
         int months = 0;
 
         for (int i = 0; i < years; i++) {
@@ -11,7 +11,7 @@ public class ExchangeYearsAndMonths {
         return months;
     }
 
-    public int monthsIntoYears(int months) {
+    public static int monthsIntoYears(int months) {
         return months/12;
     }
 }

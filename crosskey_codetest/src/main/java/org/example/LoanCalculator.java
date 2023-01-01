@@ -2,9 +2,7 @@ package org.example;
 
 
 public class LoanCalculator {
-    ExchangeMoney exchangeMoney = new ExchangeMoney();
-
-    public double calculateMonthlyRate(double interest, int months, int loan){
+    public double calculateMonthlyRate(double interest, int months, double loan){
         double interestOnMonthlyBasis = calculateMonthlyInterest(interest, months);
         double result = loan * (
                 (interestOnMonthlyBasis * (ownPow(1+interestOnMonthlyBasis, months)) /
