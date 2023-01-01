@@ -1,6 +1,6 @@
 package org.example;
 
-public class ExchangeHandler {
+public class ExchangeMoney {
     public int eurosIntoCents(double euros){
         if(euros < 0){
             return 0;
@@ -15,17 +15,5 @@ public class ExchangeHandler {
         }
         double result = (double)cents / 100;
         return result;
-    }
-
-    public int yearsIntoMonths(int years) {
-        int months = 0;
-        for (int i = 0; i < years; i++) {
-            months += 12;
-        }
-        return months;
-    }
-
-    public int monthsIntoYears(int months) {
-        return months/12;
     }
 }

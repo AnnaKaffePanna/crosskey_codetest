@@ -10,6 +10,8 @@ public class Customers {
         return customersList;
     }
 
+    /*
+
     public double activateLoanCalculator(int index){
         LoanCalculator loanCalculator = new LoanCalculator();
         double result = loanCalculator.calculateMonthlyRate(customersList.get(index).getLoanInCents(),
@@ -19,4 +21,5 @@ public class Customers {
 
         return result;
     }
+     */
 }

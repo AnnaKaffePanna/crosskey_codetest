@@ -4,11 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 
 public class FileHandler {
     private final Customers customers = new Customers();
-    private final ExchangeHandler exchangeHandler = new ExchangeHandler();
+    private final ExchangeMoney exchangeMoney = new ExchangeMoney();
 
     void readFile() throws IOException {
         int count = 0;
@@ -71,19 +70,20 @@ public class FileHandler {
     }
 
     public void printFile(){
+        /*
         for(int i = 0; i < customers.getCustomersList().size(); i++) {
             System.out.println("*****************************************************" +
                                 "***********************************************\n");
             System.out.println("Prospect " + (i+1) + ": "+ customers.getCustomersList().get(i).getName()
                                 + " wants to borrow "
-                                + exchangeHandler.centsIntoEuros(customers.getCustomersList().get(i).getLoanInCents())
+                                + exchangeMoney.centsIntoEuros(customers.getCustomersList().get(i).getLoanInCents())
                                 + "€ for a period of "
                                 + customers.getCustomersList().get(i).getMonths()/12 + " years and pay "
                                 + customers.activateLoanCalculator(i) + "€ each month.");
             System.out.println("\n*****************************************************" +
                                 "***********************************************\n");
 
-        }
+        }*/
 
     }
 }

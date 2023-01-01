@@ -6,13 +6,14 @@ public class Customer {
     private final double interest;
     private final int months;
 
-    ExchangeHandler exchangeHandler = new ExchangeHandler();
-
     public Customer(String name, double loanInEuro, double interest, int years) {
+        ExchangeMoney exchangeMoney = new ExchangeMoney();
+        ExchangeYearsAndMonths exchangeYearsAndMonths = new ExchangeYearsAndMonths();
+
         this.name = name;
-        this.loanInCents = exchangeHandler.eurosIntoCents(loanInEuro);
+        this.loanInCents = exchangeMoney.eurosIntoCents(loanInEuro);
         this.interest = interest;
-        this.months = exchangeHandler.yearsIntoMonths(years);
+        this.months = exchangeYearsAndMonths.yearsIntoMonths(years);
     }
 
     public String getName() {
@@ -29,10 +30,6 @@ public class Customer {
 
     public int getLoanInCents() {
         return loanInCents;
-    }
-
-    public ExchangeHandler getExchangeHandler() {
-        return exchangeHandler;
     }
 
     @Override
