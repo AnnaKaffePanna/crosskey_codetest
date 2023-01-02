@@ -1,7 +1,7 @@
 package org.example;
 
 public class MonthUtil {
-    public static int yearsIntoMonths(int years) {
+    public static int yearsIntoMonths(final int years) {
         int months = 0;
 
         for (int i = 0; i < years; i++) {
@@ -11,7 +11,7 @@ public class MonthUtil {
         return months;
     }
 
-    public static int monthsIntoYears(int months) {
+    public static int monthsIntoYears(final int months) {
         return months/12;
     }
 }

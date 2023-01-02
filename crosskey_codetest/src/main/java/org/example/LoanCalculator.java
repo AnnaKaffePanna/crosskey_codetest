@@ -2,36 +2,16 @@ package org.example;
 
 
 public class LoanCalculator {
-    public double calculateMonthlyRate(double interest, int months, double loan){
-        double interestOnMonthlyBasis = calculateMonthlyInterest(interest, months);
-        double result = loan * (
-                (interestOnMonthlyBasis * (ownPow(1+interestOnMonthlyBasis, months)) /
-                (ownPow(1+interestOnMonthlyBasis, months) -1)));
+    private final MathUtils mathUtils = new MathUtils();
+    public double calculateMonthlyRate(final double yearlyInterest, final int months, final double loan){
+        double interestOnMonthlyBasis = calculateMonthlyInterest(yearlyInterest, months);
 
-        return result;
+        return loan * (
+                (interestOnMonthlyBasis * (MathUtils.ownPow(1+interestOnMonthlyBasis, months)) /
+                (MathUtils.ownPow(1+interestOnMonthlyBasis, months) -1)));
     }
 
-    public double calculateMonthlyInterest(double interest, int months){
-        return (interest/100)/months;
-    }
-
-    public static double ownPow(double base, int exponent) {
-        double ans = 1;
-        if (exponent != 0) {
-            int absExponent = exponent > 0 ? exponent : (-1) * exponent;
-            for (int i = 1; i <= absExponent; i++) {
-                ans *= base;
-            }
-
-            if (exponent < 0) {
-                // For negative exponent, must invert
-                ans = 1.0 / ans;
-            }
-        } else {
-            // exponent is 0
-            ans = 1;
-        }
-
-        return ans;
+    public double calculateMonthlyInterest(final double yearlyInterest, final int months){
+        return (yearlyInterest/100)/months;
     }
 }

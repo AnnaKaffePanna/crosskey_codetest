@@ -1,12 +1,10 @@
 package org.example;
 
-import java.text.DecimalFormat;
-
 public class MortgageService {
-
+    MathUtils mathUtils = new MathUtils();
     public void printMortgages(final Customers customers) {
-        DecimalFormat df = new DecimalFormat();
-        df.setMaximumFractionDigits(2);
+        //DecimalFormat df = new DecimalFormat();
+        //df.setMaximumFractionDigits(2);
         for (int i = 0; i < customers.getCustomersList().size(); i++) {
             System.out.println("*****************************************************" +
                     "***********************************************\n");
@@ -15,8 +13,8 @@ public class MortgageService {
                     + customers.getCustomersList().get(i).getLoan()
                     + "€ for a period of "
                     + customers.getCustomersList().get(i).getMonths() / 12 + " years and pay "
-                    + df.format(customers.calculateCustomerLoanAtIndex(i))
-                    + "€ each month.");
+                    + mathUtils.roundUp(customers.calculateCustomerLoanAtIndex(i))
+                    + "0€ each month.");
             System.out.println("\n*****************************************************" +
                     "***********************************************\n");
         }

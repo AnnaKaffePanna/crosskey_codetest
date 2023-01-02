@@ -3,16 +3,16 @@ package org.example;
 public class Customer {
     private final String name;
     private final double loan;
-    private final double interest;
+    private final double yearlyInterest;
     private final int months;
 
-    public Customer(final String name, final double loan, final double interest, final int years) {
+    public Customer(final String name, final double loan, final double yearlyInterest, final int years) {
         final MonthUtil monthUtil = new MonthUtil();
 
         this.name = name;
         this.loan = loan;
-        this.interest = interest;
-        this.months = monthUtil.yearsIntoMonths(years);
+        this.yearlyInterest = yearlyInterest;
+        this.months = MonthUtil.yearsIntoMonths(years);
     }
 
     public String getName() {
@@ -23,8 +23,8 @@ public class Customer {
         return loan;
     }
 
-    public double getInterest() {
-        return interest;
+    public double getYearlyInterest() {
+        return yearlyInterest;
     }
 
     public int getMonths() {
@@ -36,7 +36,7 @@ public class Customer {
         return "Customer{" +
                 "name='" + name + '\'' +
                 ", loan=" + loan +
-                ", interest=" + interest +
+                ", interest=" + yearlyInterest +
                 ", months=" + months +
                 '}';
     }

@@ -55,10 +55,10 @@ public class FileHandler {
 
     private void insertCustomerIntoList(String[] lineArray, Customers customers){
         double loan = Double.parseDouble(lineArray[1]);
-        double interest = Double.parseDouble(lineArray[2]);
+        double yearlyInterest = Double.parseDouble(lineArray[2]);
         int years = Integer.parseInt(lineArray[3]);
 
-        Customer customer = new Customer(lineArray[0], loan, interest, years);
+        Customer customer = new Customer(lineArray[0], loan, yearlyInterest, years);
         customers.getCustomersList().add(customer);
     }
 }
