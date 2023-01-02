@@ -11,6 +11,8 @@ Open a terminal in the project folder and run:
 `java -cp ./target/crosskey_codetest-1.0-SNAPSHOT.jar org.example.Main`
 
 ## Run with docker
+Open a terminal in the project folder and run:
+
 `mvn package`
 
 `docker build . -t mortgage`
