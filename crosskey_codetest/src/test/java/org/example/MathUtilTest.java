@@ -17,11 +17,11 @@ class MathUtilTest {
 
     @Test
     void noRoundUp(){
-        assertNotEquals(1.0, MathUtil.roundUp(0.94));
+        assertEquals(0.9, MathUtil.roundUp(0.94));
     }
 
     @Test
-    void roundUpNullTest(){
+    void roundUpZeroTest(){
         assertEquals(0, MathUtil.roundUp(0.00));
     }
 
@@ -50,12 +50,12 @@ class MathUtilTest {
     }
 
     @Test
-    void ownPowNullTest(){
+    void ownPowZeroTest(){
         assertEquals(Math.pow(0,0), MathUtil.ownPow(0,0));
     }
 
     @Test
-    void onlyExponentIsNullEqualsOne(){
+    void onlyExponentIsZeroEqualsOne(){
         assertEquals(Math.pow(2,0), MathUtil.ownPow(2,0)); //Answer is 1
     }
 }

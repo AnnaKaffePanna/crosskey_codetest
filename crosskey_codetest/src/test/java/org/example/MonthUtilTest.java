@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class MonthUtilTest {
 
     /**
-     * Testcases for methods handling exchanges from months into year/years and vise verse
+     * Testcases for methods handling exchanges from months into year/years and vice versa
      */
 
     @Test
@@ -20,7 +20,7 @@ class MonthUtilTest {
     }
 
     @Test
-    void monthsIntoYearsNullTest(){
+    void monthsIntoYearsZeroTest(){
         assertEquals(0, MonthUtil.yearsIntoMonths(0));
     }
     @Test

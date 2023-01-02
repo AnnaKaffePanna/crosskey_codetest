@@ -15,7 +15,7 @@ class LoanCalculatorTest {
         assertEquals(0.004166666666666667, loanCalculator.calculateMonthlyInterest(5, 12));
     }
     @Test
-    void monthlyInterestNullTest(){
+    void monthlyInterestZeroTest(){
         assertEquals(0.0, loanCalculator.calculateMonthlyInterest(0, 0));
     }
 
@@ -25,11 +25,11 @@ class LoanCalculatorTest {
     }
 
     @Test
-    void nullTestOnlyInterest(){
+    void zeroTestOnlyInterest(){
         assertEquals(0.0, loanCalculator.calculateMonthlyInterest(0, 12));
     }
     @Test
-    void nullTestOnlyMonths(){
+    void zeroTestOnlyMonths(){
         assertEquals(0.0, loanCalculator.calculateMonthlyInterest(5, 0));
     }
 
@@ -53,7 +53,7 @@ class LoanCalculatorTest {
     }
 
     @Test
-    void calculateRateNullTest(){
+    void calculateRateZeroTest(){
         assertEquals(0.0, loanCalculator.calculateMonthlyRate(0, 0, 0));
     }
 
@@ -63,7 +63,7 @@ class LoanCalculatorTest {
     }
 
     @Test
-    void calculateRateWhenInterestIsNull(){
+    void calculateRateWhenInterestIsZero(){
         assertEquals(0.0, loanCalculator.calculateMonthlyRate(0, 12, 1000));
     }
 
