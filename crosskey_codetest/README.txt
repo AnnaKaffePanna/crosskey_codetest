@@ -3,7 +3,7 @@
 Instructions: (!All steps are done in the cmd!)
 1. Open a command prompt. (When testing the original command prompt was used).
 
-2. Find the correct path to the files by using the command -> cd
+2. Go to the correct path to the files by using the command -> cd
    example of the command and a path: cd C:\Users\Anna\Desktop\crosskey_codetest\crosskey_codetest>
 
 3. Write the command -> mvn package (wait for it to finish).
