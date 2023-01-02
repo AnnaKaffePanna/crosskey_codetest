@@ -1,25 +1,74 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestClassOrder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoanCalculatorTest {
-    //ToDo: Make good tests
-    //LoanCalculator loanCalculator = new LoanCalculator(100, 5, 1);
-    //LoanCalculator loanCalculatorNull = new LoanCalculator(0,0,0);
 
+    private final LoanCalculator loanCalculator = new LoanCalculator();
+    private final MathUtil mathUtil = new MathUtil();
+
+    /**
+     * Tests for calculateMonthlyInterest method
+     */
     @Test
-    void testCalculateInterestRate() {
-        //assertEquals(41.666666666666664, loanCalculator.calculateInterestRate());
-        //assertEquals(0, loanCalculatorNull.calculateInterestRate());
+    void fivePrecentYearlyInterestRateIntoMonthlyInterest(){
+        assertEquals(0.004166666666666667, loanCalculator.calculateMonthlyInterest(5, 12));
     }
 
     @Test
-    void calculateMonthlyRate() {
+    void monthlyInterestNullTest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(0, 0));
     }
 
     @Test
-    void calculateYearsIntoMonths() {
+    void monthlyInterestNegativeValueTest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(-1, -1));
     }
+
+    @Test
+    void nullTestOnlyInterest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(0, 12));
+    }
+    @Test
+    void nullTestOnlyMonths(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(5, 0));
+    }
+
+    @Test
+    void negativeValueTestOnlyInterest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(-1, 12));
+    }
+
+    @Test
+    void negativeValueTestOnlyMonths(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyInterest(5, -1));
+    }
+
+    /**
+     * Tests for calculateMonthlyRate method
+     */
+
+    @Test
+    void calculateMonthlyRate(){
+        assertEquals(85.60748178846744, loanCalculator.calculateMonthlyRate(5, 12, 1000));
+    }
+
+    @Test
+    void calculateRateNullTest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyRate(0, 0, 0));
+    }
+
+    @Test
+    void calculateRateNegativeValuesTest(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyRate(-1, -1, -1));
+    }
+
+    @Test
+    void calculateRateWhenInterestIsNull(){
+        assertEquals(0.0, loanCalculator.calculateMonthlyRate(0, 12, 1000));
+    }
+
 }

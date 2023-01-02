@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.text.DecimalFormat;
 
 public class FileHandler {
     public Customers readFile() throws IOException {
@@ -27,7 +26,7 @@ public class FileHandler {
         return customers;
     }
 
-    private void handleLine(String line, Customers customers){
+    public void handleLine(String line, Customers customers){
         String[] lineArray = line.split(",");
 
         for(int i = 0; i < lineArray.length; i++){
@@ -53,7 +52,7 @@ public class FileHandler {
         }
     }
 
-    private void insertCustomerIntoList(String[] lineArray, Customers customers){
+    public void insertCustomerIntoList(String[] lineArray, Customers customers){
         double loan = Double.parseDouble(lineArray[1]);
         double yearlyInterest = Double.parseDouble(lineArray[2]);
         int years = Integer.parseInt(lineArray[3]);

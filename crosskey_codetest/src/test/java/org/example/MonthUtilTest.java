@@ -8,7 +8,7 @@ class MonthUtilTest {
     MonthUtil monthUtil = new MonthUtil();
 
     /**
-     * Testcases for methods handling exchanges from months into year/years
+     * Testcases for methods handling exchanges from months into year/years and vise verse
      */
 
     @Test

@@ -1,6 +1,6 @@
 package org.example;
 
-public class MathUtils {
+public class MathUtil {
     public double roundUp(final double number){
         return (int)((number * 10.0) + 0.5) / 10.0;
     }
