@@ -5,17 +5,15 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoanCalculatorTest {
-
     LoanCalculator loanCalculator = new LoanCalculator();
 
     /**
      * Tests for calculateMonthlyInterest method
      */
     @Test
-    void fivePrecentYearlyInterestRateIntoMonthlyInterest(){
+    void fivePercentYearlyInterestRateIntoMonthlyInterest(){
         assertEquals(0.004166666666666667, loanCalculator.calculateMonthlyInterest(5, 12));
     }
-
     @Test
     void monthlyInterestNullTest(){
         assertEquals(0.0, loanCalculator.calculateMonthlyInterest(0, 0));

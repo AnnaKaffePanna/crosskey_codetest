@@ -6,7 +6,8 @@ public class MathUtil {
     }
 
     public static double ownPow(final double base, final int exponent) {
-        double ans = 1;
+        double ans = 1; // if the exponent is 0 one will be the default answer
+
         if (exponent != 0) {
             int absExponent = exponent > 0 ? exponent : (-1) * exponent;
             for (int i = 1; i <= absExponent; i++) {
@@ -14,14 +15,10 @@ public class MathUtil {
             }
 
             if (exponent < 0) {
-                // For negative exponent, must invert
+                // Negative exponents are inverted
                 ans = 1.0 / ans;
             }
-        } else {
-            // exponent is 0
-            ans = 1;
         }
-
         return ans;
     }
 }

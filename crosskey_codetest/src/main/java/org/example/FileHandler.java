@@ -40,14 +40,9 @@ public class FileHandler {
                     }
                     lineArray[lineArray.length-1] = null;
 
-                    insertCustomerIntoList(lineArray, customers);
-                    return;
                 }
-
-                else {
-                    insertCustomerIntoList(lineArray, customers);
-                    return;
-                }
+                insertCustomerIntoList(lineArray, customers);
+                return;
             }
         }
     }

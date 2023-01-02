@@ -1,7 +1,5 @@
 package org.example;
 
-import java.util.Objects;
-
 public class Customer {
     private final String name;
     private final double loan;
@@ -9,8 +7,6 @@ public class Customer {
     private final int months;
 
     public Customer(final String name, final double loan, final double yearlyInterest, final int years) {
-        final MonthUtil monthUtil = new MonthUtil();
-
         this.name = name;
         this.loan = loan;
         this.yearlyInterest = yearlyInterest;
@@ -41,18 +37,5 @@ public class Customer {
                 ", interest=" + yearlyInterest +
                 ", months=" + months +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Customer customer = (Customer) o;
-        return Double.compare(customer.loan, loan) == 0 && Double.compare(customer.yearlyInterest, yearlyInterest) == 0 && months == customer.months && Objects.equals(name, customer.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, loan, yearlyInterest, months);
     }
 }
