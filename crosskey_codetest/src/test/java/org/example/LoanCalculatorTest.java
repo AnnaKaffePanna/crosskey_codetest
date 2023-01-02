@@ -1,14 +1,12 @@
 package org.example;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestClassOrder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LoanCalculatorTest {
 
-    private final LoanCalculator loanCalculator = new LoanCalculator();
-    private final MathUtil mathUtil = new MathUtil();
+    LoanCalculator loanCalculator = new LoanCalculator();
 
     /**
      * Tests for calculateMonthlyInterest method
