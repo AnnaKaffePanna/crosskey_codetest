@@ -9,8 +9,7 @@ public class MathUtil {
         double ans = 1; // if the exponent is 0 one will be the default answer
 
         if (exponent != 0) {
-            int absExponent = exponent > 0 ? exponent : (-1) * exponent;
-            for (int i = 1; i <= absExponent; i++) {
+            for (int i = 1; i <= exponent; i++) {
                 ans *= base;
             }
 
